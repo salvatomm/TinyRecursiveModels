@@ -1,0 +1,35 @@
+{
+  "os": "Linux-5.14.0-503.19.1.el9_5.x86_64-x86_64-with-glibc2.34",
+  "python": "CPython 3.12.11",
+  "startedAt": "2025-10-30T13:43:10.361993Z",
+  "args": [
+    "arch=trm",
+    "data_paths=[data/sudoku-extreme-1k-aug-1000]",
+    "evaluators=[]",
+    "epochs=50000",
+    "eval_interval=5000",
+    "lr=1e-4",
+    "puzzle_emb_lr=1e-4",
+    "weight_decay=1.0",
+    "puzzle_emb_weight_decay=1.0",
+    "arch.mlp_t=True",
+    "arch.pos_encodings=none",
+    "arch.L_layers=2",
+    "arch.H_cycles=3",
+    "arch.L_cycles=6",
+    "+run_name=pretrain_mlp_t_sudoku",
+    "ema=True"
+  ],
+  "program": "/home/tommaso.salvatori/trans/TinyRecursiveModels/pretrain.py",
+  "codePath": "pretrain.py",
+  "codePathLocal": "pretrain.py",
+  "git": {
+    "remote": "https://github.com/salvatomm/TinyRecursiveModels.git",
+    "commit": "e7b68717f0a6c4cbb4ce6fbef787b14f42083bd9"
+  },
+  "email": "tommaso.salvatori@verses.ai",
+  "root": "/home/tommaso.salvatori/trans/TinyRecursiveModels",
+  "host": "dgx-h100-2",
+  "executable": "/home/tommaso.salvatori/miniconda3/envs/hrm/bin/python",
+  "writerId": "1r41rqcwr7d74q6xwk3d7uteh1muxpy8"
+}

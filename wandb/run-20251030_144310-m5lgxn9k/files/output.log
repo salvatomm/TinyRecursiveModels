@@ -1,0 +1,81 @@
+Setup EMA
+[Rank 0, World Size 1]: Epoch 0
+TRAIN
+  0%|▎                                                                                                      | 188/65104 [00:58<2:40:31,  6.74it/s]Traceback (most recent call last):
+  File "/home/tommaso.salvatori/trans/TinyRecursiveModels/pretrain.py", line 654, in <module>
+    launch()
+  File "/home/tommaso.salvatori/miniconda3/envs/hrm/lib/python3.12/site-packages/hydra/main.py", line 94, in decorated_main
+    _run_hydra(
+  File "/home/tommaso.salvatori/miniconda3/envs/hrm/lib/python3.12/site-packages/hydra/_internal/utils.py", line 394, in _run_hydra
+    _run_app(
+  File "/home/tommaso.salvatori/miniconda3/envs/hrm/lib/python3.12/site-packages/hydra/_internal/utils.py", line 457, in _run_app
+    run_and_report(
+  File "/home/tommaso.salvatori/miniconda3/envs/hrm/lib/python3.12/site-packages/hydra/_internal/utils.py", line 220, in run_and_report
+    return func()
+           ^^^^^^
+  File "/home/tommaso.salvatori/miniconda3/envs/hrm/lib/python3.12/site-packages/hydra/_internal/utils.py", line 458, in <lambda>
+    lambda: hydra.run(
+            ^^^^^^^^^^
+  File "/home/tommaso.salvatori/miniconda3/envs/hrm/lib/python3.12/site-packages/hydra/_internal/hydra.py", line 119, in run
+    ret = run_job(
+          ^^^^^^^^
+  File "/home/tommaso.salvatori/miniconda3/envs/hrm/lib/python3.12/site-packages/hydra/core/utils.py", line 186, in run_job
+    ret.return_value = task_function(task_cfg)
+                       ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tommaso.salvatori/trans/TinyRecursiveModels/pretrain.py", line 607, in launch
+    metrics = train_batch(config, train_state, batch, global_batch_size, rank=RANK, world_size=WORLD_SIZE)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tommaso.salvatori/trans/TinyRecursiveModels/pretrain.py", line 321, in train_batch
+    optim.step()
+  File "/home/tommaso.salvatori/miniconda3/envs/hrm/lib/python3.12/site-packages/torch/optim/optimizer.py", line 516, in wrapper
+    out = func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tommaso.salvatori/miniconda3/envs/hrm/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tommaso.salvatori/trans/TinyRecursiveModels/models/sparse_embedding.py", line 87, in step
+    _sparse_emb_signsgd_dist(
+  File "/home/tommaso.salvatori/trans/TinyRecursiveModels/models/sparse_embedding.py", line 121, in _sparse_emb_signsgd_dist
+    grad_ids, inv = all_ids.unique(return_inverse=True)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tommaso.salvatori/miniconda3/envs/hrm/lib/python3.12/site-packages/torch/_tensor.py", line 1069, in unique
+    return torch.unique(
+           ^^^^^^^^^^^^^
+  File "/home/tommaso.salvatori/miniconda3/envs/hrm/lib/python3.12/site-packages/torch/_jit_internal.py", line 625, in fn
+    return if_true(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tommaso.salvatori/miniconda3/envs/hrm/lib/python3.12/site-packages/torch/_jit_internal.py", line 627, in fn
+    return if_false(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tommaso.salvatori/miniconda3/envs/hrm/lib/python3.12/site-packages/torch/functional.py", line 1118, in _return_inverse
+    output, inverse_indices, _ = _unique_impl(
+                                 ^^^^^^^^^^^^^
+  File "/home/tommaso.salvatori/miniconda3/envs/hrm/lib/python3.12/site-packages/torch/functional.py", line 995, in _unique_impl
+    output, inverse_indices, counts = torch._unique2(
+                                      ^^^^^^^^^^^^^^^
+KeyboardInterrupt
+Exception ignored in atexit callback: <function _start_and_connect_service.<locals>.teardown_atexit at 0x7f6a6ca5d800>
+Traceback (most recent call last):
+  File "/home/tommaso.salvatori/miniconda3/envs/hrm/lib/python3.12/site-packages/wandb/sdk/lib/service/service_connection.py", line 54, in teardown_atexit
+    conn.teardown(hooks.exit_code)
+  File "/home/tommaso.salvatori/miniconda3/envs/hrm/lib/python3.12/site-packages/wandb/sdk/lib/service/service_connection.py", line 182, in teardown
+    self._router.join()
+  File "/home/tommaso.salvatori/miniconda3/envs/hrm/lib/python3.12/site-packages/wandb/sdk/interface/router.py", line 75, in join
+    self._thread.join()
+  File "/home/tommaso.salvatori/miniconda3/envs/hrm/lib/python3.12/threading.py", line 1149, in join
+    self._wait_for_tstate_lock()
+  File "/home/tommaso.salvatori/miniconda3/envs/hrm/lib/python3.12/threading.py", line 1169, in _wait_for_tstate_lock
+    if lock.acquire(block, timeout):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt:
+Exception ignored in atexit callback: <function shutdown_compile_workers at 0x7f6a6ee3e520>
+Traceback (most recent call last):
+  File "/home/tommaso.salvatori/miniconda3/envs/hrm/lib/python3.12/site-packages/torch/_inductor/async_compile.py", line 142, in shutdown_compile_workers
+    pool.shutdown()
+  File "/home/tommaso.salvatori/miniconda3/envs/hrm/lib/python3.12/site-packages/torch/_inductor/compile_worker/subproc_pool.py", line 243, in shutdown
+    self.process.wait(300)
+  File "/home/tommaso.salvatori/miniconda3/envs/hrm/lib/python3.12/subprocess.py", line 1277, in wait
+    self._wait(timeout=sigint_timeout)
+  File "/home/tommaso.salvatori/miniconda3/envs/hrm/lib/python3.12/subprocess.py", line 2047, in _wait
+    time.sleep(delay)
+KeyboardInterrupt:
